@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="" />
+	<meta name="Author" content="" />
+	
+	<title>Ensemble</title>
+	
+	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+	<link rel="import" href="bower_components/polymer/polymer.html">
+	<link rel="import" href="bower_components/core-item/core-item.html">
+	<link rel="import" href="bower_components/core-selector/core-selector.html">
+	<link rel="import" href="bower_components/core-collapse/core-collapse.html">
+	<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+	<link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+	<link rel="import" href="bower_components/core-icons/core-icons.html">
+	<link rel="import" href="bower_components/core-icons/image-icons.html">
+	<link rel="import" href="bower_components/core-icons/hardware-icons.html">
+	<link rel="import" href="bower_components/core-pages/core-pages.html">
+	<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+	<link rel="import" href="bower_components/paper-button/paper-button.html">
+	<link rel="import" href="bower_components/paper-fab/paper-fab.html">
+
+	<style>
+		html, body {
+			height: 100%;
+		}
+		
+		core-header-panel {
+			width: 100%;
+			height: 300px;
+			margin: 5px;
+		}
+		.core-header {
+			height: 60px;
+			background-color: black;
+			color: white;
+			transition: height 0.2s;
+		}
+		.core-header.medium-tall {
+			height: 120px;
+			background-color: blue;
+		}
+
+		core-pages {
+			height: 1000px;
+			width: 300px;
+			color: white;
+			border: 1px solid black;
+			border-radius: 5px;
+		}
+    core-list {
+      border: solid 1px purple;
+      height: 200px;
+    }
+		paper-fab[icon="hardware:keyboard-arrow-down"] {
+			color: black;
+		}
+		core-pages.fancy {
+			border: none;
+			margin-top: 2em;
+		}
+
+		core-pages.fancy > div {
+			opacity: 0;
+			-webkit-transform: translate3d(0, 100px, 0) scale(0.9);
+			transform: translate3d(0, 100px, 0) scale(0.9);
+			transition: all 0.5s cubic-bezier(.03,.56,.7,.98);
+			color: white;
+		}
+
+		.red, core-pages.fancy > .red {
+			background-color: red;
+			-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+			box-shadow: 0 1px 10px rgba(0, 0, 0, 0.175);
+		}
+		.blue, core-pages.fancy > .blue {
+			background-color: blue;
+			-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+		}
+		.green, core-pages.fancy > .green {
+			background-color: green;
+			-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+		}
+
+		core-pages.fancy .core-selected + div {
+			-webkit-transform: translate3d(0, -100px, 0) scale(0.9);
+			transform: translate3d(0,-100px, 0) scale(1);
+		}
+
+		core-pages.fancy .core-selected {
+			opacity: 1;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+		core-pages.fancy div.begin {
+			-webkit-transform: translate3d(0,-100px, 0) scale(0.9);
+			transform: translate3d(0,-100px, 0) scale(0.9);
+		}
+
+		paper-shadow {
+			margin: 1em;
+		}
+
+	</style>
+
+</head>
+<body fullbleed unresolved vertical center center-justified layout>
+
+	<core-header-panel mode="waterfall-tall" tallClass="medium-tall">
+		<div horizontal layout class="core-header">ensemble - name<div self-end>hogehoge</div></div>
+		<div class="content">
+			<section>
+
+			<template id="example" repeat="{{ names }}">
+				<paper-shadow>
+				<div onclick="document.querySelector('#{{name}}').toggle();"> {{name}} </div>
+					<!--<core-collapse opened?="{{selected == name}}" fixedSize>-->
+					<core-collapse id="{{ name }}" duration="0.2">
+						<div layout vertical>
+								<template repeat="{{ services }}">
+									<core-item>
+										<paper-toggle-button></paper-toggle-button>
+										{{service}}{{flag}}
+									</core-item>
+								</template>
+						</div>
+					</core-collapse>
+				</paper-shadow>
+			</template>
+
+			</section>
+		</div>
+<!--
+		<div vertical layout end>
+				<div><paper-fab id="next" icon="hardware:keyboard-arrow-down"></paper-fab></div>
+		</div>
+-->
+	</core-header-panel>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var t = document.getElementById('example');
+			t.model = {
+				names : [ {name: "abc",
+									 class: "blue",
+									 services: [ { service: "phone", flag: "on"}, {service: "mail", flag: "off"} ]
+									} 
+								,	{name: "def",
+									 class: "red",
+									 services: [ { service: "facebook"}, {service: "google"} ]
+									}
+								,	{name: "ghi",
+									 class: "green",
+									 services: [ { service: "twitter"}, {service: "google"} ]
+									}
+								]
+			};
+			Platform.performMicrotaskCheckpoint();
+		});
+		/*
+		document.querySelector('#next').onclick = function(e) {
+			var pages = document.querySelector('core-pages');
+			pages.selected = (pages.selected + 1) % pages.items.length; //(pages.children.length-1);
+			pages.async(function() {
+				if (pages.selectedIndex === 0) {
+					pages.selectedItem.classList.remove('begin');
+				}
+				else if (pages.selectedIndex === pages.items.length - 1) {
+					pages.items[0].classList.add('begin');
+				}
+			});
+		};
+			this.selected = (this.selected + 1) % this.items.length;
+			this.async(function() {
+				if (this.selectedIndex == 0) {
+					this.selectedItem.classList.remove('begin');
+				} else if (this.selectedIndex == this.items.length - 1) {
+				this.items[0].classList.add('begin');
+				}
+			});
+		};
+		/*
+		document.addEventListener('click', function(e) {
+			var pages = document.querySelector('core-pages');
+			pages.selected = (pages.selected + 1) % pages.children.length;
+		});
+		*/
+	</script>
+</body></html>
+
+

@@ -1,0 +1,162 @@
+{
+	"elements": [
+	  {
+			"group": "nodes",
+			"classes": "native",
+			"data":
+			  {
+					"id": "root",
+					"label": "root",
+					"icon": "img/root.png"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "service",
+			"data": 
+				{
+					 "id": "alterego@getonsip.com",
+					 "name": "onsip",
+					 "label": "Mobile-OnSIP",
+					 "icon": "img/smartphone.png"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "service",
+			"data": 
+				{
+					 "id": "egoaltr@mail.com",
+					 "name": "google",
+					 "label": "GMail",
+					 "icon": "img/gmail.png"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "service",
+			"data": 
+				{
+					 "id": "konsome@getonsip.com",
+					 "name": "onsip",
+					 "label": "Office-OnSIP",
+					 "icon": "img/phone.png"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "service",
+			"data": 
+				{
+					 "id": "mail@address",
+					 "name": "org",
+					 "label": "Office-eMail",
+					 "icon": "img/mail.png"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "linker",
+			"data": 
+				{
+					 "id": "pi.org.public",
+					 "name": "public@org.pi"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "linker",
+			"data": 
+				{
+					 "id": "pi.org.private",
+					 "name": "private@org.pi"
+				}
+		},
+		{
+			"group": "nodes",
+			"classes": "linker",
+			"data": 
+				{
+					 "id": "pi.org.bizly",
+					 "name": "bizly@org.pi"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "inner",
+			"data":
+				{
+					"target": "pi.org.private",
+					"source": "root"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "inner",
+			"data":
+				{
+					"target": "pi.org.public",
+					"source": "root"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "inner",
+			"data":
+				{
+					"target": "pi.org.bizly",
+					"source": "root"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "out sip",
+			"data":
+				{
+					"label": "call",
+					"source": "pi.org.private",
+					"target": "alterego@getonsip.com"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "out smtp",
+			"data":
+				{
+					"label": "email",
+					"source": "pi.org.private",
+					"target": "egoaltr@gmail.com"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "out sip",
+			"data":
+				{
+					"label": "call",
+					"source": "pi.org.public",
+ 					"target": "alterego@getonsip.com"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "out sip",
+			"data":
+				{
+					"label": "call",
+					"source": "pi.org.bizly",
+					"target": "konsome@getonsip.com"
+				}
+		},
+		{
+			"group": "edges",
+			"classes": "out smpt",
+			"data":
+				{
+					"label": "email",
+					"source": "pi.org.bizly",
+					"target": "mail@address"
+				}
+		}	
+	]
+}

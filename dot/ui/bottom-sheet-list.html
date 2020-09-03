@@ -1,0 +1,15 @@
+<md-bottom-sheet class="md-list md-has-header" style="height:70%; width:50%; margin-left:auto;">
+	<md-subheader>Settings</md-subheader>
+	<form ng-submit="submit()">
+		<input type="text" ng-model="uri" ng-init="uri = 'temp@ligo'" placeholder="URI: name@domain" />
+		<input type="text" ng-model="label" ng-init="label = 'temporary'" placeholder="Label" />
+		<br><br>
+		<input type="submit" id="submit" value="create hub" ng-click="service = 'my'" />
+		<br><br>
+		<span class="lines-on-sides"> OR </span>
+		<span style="color:#ffffff"><h3 style="font-weight:900"> register a service: </h3></span><br>
+		<button type="submit" ng-click="service = 'dropbox'"><i class="fa fa-dropbox"></i></button>
+		<button type="submit" ng-click="service = 'pinterest'"><i class="fa fa-pinterest-square"></i></button>
+		<button type="submit" ng-click="service = 'linkedin'"><i class="fa fa-linkedin-square"></i></button>
+	</form>
+</md-bottom-sheet>

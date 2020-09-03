@@ -1,0 +1,202 @@
+{
+  "dots": [
+    {
+      "icon": "face",
+      "type": "hub",
+      "uri": "private@catena",
+      "name": "Private",
+      "id": 0
+    },
+    {
+      "icon": "social:public",
+      "type": "hub",
+      "uri": "public@catena",
+      "name": "Public",
+      "id": 1
+    },
+    {
+      "icon": "social:location-city",
+      "type": "hub",
+      "uri": "business@catena",
+      "name": "Business",
+      "id": 2
+    },
+    {
+      "icon": "communication:textsms",
+      "type": "hub",
+      "uri": "api@ligo",
+      "name": "Speech-to-text",
+      "id": 8
+    },
+    {
+      "icon": "maps:local-shipping",
+      "type": "hub",
+      "uri": "notify@catena",
+      "name": "Delivery Notification",
+      "id": 10
+    },
+    {
+      "icon": "shopping-basket",
+      "type": "hub",
+      "uri": "info@catena",
+      "name": "Sales Info",
+      "id": 11
+    }
+  ],
+  "services": [
+    {
+      "intent": "call",
+      "icon": "android",
+      "type": "endpoint",
+      "uri": "tel:123456789",
+      "name": "Docomo",
+      "id": 3
+    },
+    {
+      "intent": "post",
+      "icon": "mail",
+      "type": "endpoint",
+      "uri": "mailto:mail@mail.com",
+      "name": "GMail",
+      "id": 4
+    },
+    {
+      "intent": "call",
+      "icon": "communication:phone",
+      "type": "endpoint",
+      "uri": "tel:012345678",
+      "name": "Bizphone",
+      "id": 5
+    },
+    {
+      "intent": "post",
+      "icon": "social-post:twitter",
+      "type": "endpoint",
+      "uri": "mail@mail.com",
+      "name": "Twitter",
+      "id": 6
+    },
+    {
+      "intent": "post",
+      "icon": "communication:voicemail",
+      "type": "endpoint",
+      "uri": "Asterisk",
+      "name": "Voicemail",
+      "id": 7
+    },
+    {
+      "icon": "communication:textsms",
+      "type": "endpoint",
+      "uri": "rest:speechapiv2",
+      "name": "Speech-api",
+      "id": 9
+    }
+  ],
+  "links": [
+    {
+      "start": 0,
+      "end": 3,
+      "type": "subscribe",
+      "properties": {},
+      "id": 0
+    },
+    {
+      "start": 8,
+      "end": 0,
+      "type": "subscribe",
+      "properties": {},
+      "id": 6
+    },
+    {
+      "start": 12,
+      "end": 0,
+      "type": "own",
+      "properties": {},
+      "id": 8
+    },
+    {
+      "start": 1,
+      "end": 4,
+      "type": "subscribe",
+      "properties": {},
+      "id": 1
+    },
+    {
+      "start": 1,
+      "end": 6,
+      "type": "subscribe",
+      "properties": {},
+      "id": 2
+    },
+    {
+      "start": 12,
+      "end": 1,
+      "type": "own",
+      "properties": {},
+      "id": 9
+    },
+    {
+      "start": 2,
+      "end": 5,
+      "type": "subscribe",
+      "properties": {},
+      "id": 3
+    },
+    {
+      "start": 2,
+      "end": 7,
+      "type": "subscribe",
+      "properties": {},
+      "id": 4
+    },
+    {
+      "start": 12,
+      "end": 2,
+      "type": "own",
+      "properties": {},
+      "id": 10
+    },
+    {
+      "start": 8,
+      "end": 0,
+      "type": "subscribe",
+      "properties": {},
+      "id": 6
+    },
+    {
+      "start": 7,
+      "end": 8,
+      "type": "permit",
+      "properties": {},
+      "id": 5
+    },
+    {
+      "start": 8,
+      "end": 9,
+      "type": "composite",
+      "properties": {},
+      "id": 7
+    },
+    {
+      "start": 12,
+      "end": 8,
+      "type": "own",
+      "properties": {},
+      "id": 11
+    },
+    {
+      "start": 12,
+      "end": 10,
+      "type": "own",
+      "properties": {},
+      "id": 12
+    },
+    {
+      "start": 12,
+      "end": 11,
+      "type": "own",
+      "properties": {},
+      "id": 13
+    }
+  ]
+}

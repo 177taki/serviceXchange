@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/css/font-awesome.css">
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Orbitron:400,500,900' rel='stylesheet' type='text/css'>
+
+	<script src="//www.polymer-project.org/0.5/components/webcomponentsjs/webcomponents.min.js"></script>
+
+	<link rel="import" href="//www.polymer-project.org/0.5/components/polymer/polymer.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-scroll-header-panel/core-scroll-header-panel.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/core-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-iconset-svg/core-iconset.svg.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/communication-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/hardware-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/notification-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/social-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/maps-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/device-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/editor-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/core-icons/image-icons.html">
+	<link rel="import" href="//www.polymer-project.org/0.5/components/paper-fab/paper-fab.html">
+	<link rel="import" href="social-post-icons.html">
+
+	<style shim-shadowdom>
+
+		@font-face {
+			font-family: 'perrella';
+			src: url('fonts/perrella_font.ttf') format('truetype');
+		}
+		@font-face {
+			font-family: 'modernfex';
+			src: url('fonts/ModernFex.ttf') format('truetype');
+		}
+		body {
+			font-family: 'perrella';
+		}
+		.lines-on-sides, h3 {
+			display: table;
+			text-align: center;
+			white-space: nowrap;
+		}
+		.lines-on-sides:after, h3:after, .lines-on-sides:before, h3:before {
+			content: '';
+			display: table-cell;
+			width: 50%;
+			background: -webkit-linear-gradient(transparent 50%, currentColor 50%, currentColor -webkit-calc(50% + 1px), transparent -webkit-calc(50% + 1px));
+			background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, currentColor), color-stop(currentColor calc(50% + 1px)), to(transparent calc(50% + 1px)));
+			background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + 1px), transparent calc(50% + 1px));
+			-webkit-background-clip: padding;
+			background-clip: padding;
+		}
+		.lines-on-sides:after, h3:after {
+			border-left: 1em solid transparent;
+		}
+		.lines-on-sides:before, h3:before {
+			border-right: 1em solid transparent;
+		}
+		core-scroll-header-panel {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: #343838;
+		}
+		/* background for toolbar when it is at its full size */
+		core-scroll-header-panel::shadow #headerBg {
+			background: #005F6B;
+		}
+		/* background for toolbar when it is condensed */
+		core-scroll-header-panel::shadow #condensedHeaderBg {
+			background-color: #008C9E;
+		}
+
+		core-toolbar {
+			fill: #CC3917;
+			background-color: transparent;
+			text-align: center;
+		}
+		core-toolbar h1 {
+			color: #00DFFC;
+			font-family: 'modernfex';
+			font-size: 2.1em;
+		}
+		paper-fab {
+			background-color: white;
+			color: grey;
+		}
+		paper-fab.hubs {
+			background: #FFEBEE;
+			color: white;
+		}
+		paper-fab.on {
+			background: #00DFFC;
+			color: white;
+		}
+		div.names {
+			height: 2000px;
+			width: 100%;
+		}
+		md-content.main {
+			background: #343838;
+		}
+
+	</style>
+</head>
+<body ng-app="dot" fullbleed vertical layout unresolved>
+
+	<core-scroll-header-panel condenses>
+		<core-toolbar class="tall"><span flex><h1>catena</h1></span></core-toolbar>
+		<div layout="row" layout-align="center end" ng-controller="dotController" class="ng-scope">
+			<p style="position: fixed; bottom: 50px; right: 50px; z-index:1;"><paper-fab style="background:#F6CA06;" icon="add" ng-click="showListBottomSheet($event)"></paper-fab></p>
+			<div class="names">
+				<!--				<div ng-controller="dotController" class="ng-scope">-->
+					<md-content class="md-padding main">
+						<md-list>
+							<md-list-item ng-repeat="dot in graph.dots" ng-click="showAdvanced($event,dot.name,dot.id,dot.icon)">
+								<div layout="row" layout-margin>
+									<div flex>
+										<div ng-if="dot.id != 10 && dot.id != 11" style="color:#00B4CC">{{dot.name}}</div>
+										<div ng-if="dot.id == 10 || dot.id == 11" style="color:#BF1E56">{{dot.name}}</div>
+									</div>
+									<div flex layout="row">
+										<div ng-if="dot.id != 10 && dot.id != 11" style="margin-left:-27px;background:#00B4CC;height:54px;width:54px; -moz-border-radius: 27px;-webkit-border-radius: 27px;border-radius: 27px" layout="row" layout-align="center center"><core-icon style="color: white; height:34px;width:34px" icon={{dot.icon}}></core-icon></div>
+										<div ng-if="dot.id == 10 || dot.id == 11" style="margin-left:-27px;background:#BF1E56;height:54px;width:54px; -moz-border-radius: 27px;-webkit-border-radius: 27px;border-radius: 27px" layout="row" layout-align="center center"><core-icon style="color: white; height:34px;width:34px" icon={{dot.icon}}></core-icon></div>
+									</div>
+								</div>
+								<md-divider></md-divider>
+							</md-list-item>
+						</md-list>
+						<br/>
+						<b layout="row" layout-align="center center" layout-margin>
+							{{alert}}
+						</b>
+					</md-content>
+					<!--</div>-->
+			</div>
+		</div>
+	</core-scroll-header-panel>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+
+<script>
+
+// Include app dependency on ngMaterial
+
+angular.module( 'dot', [ 'ngMaterial', 'ngResource' ] )
+.factory('graphFactory', function($http, $resource) {
+	var graph = {};
+	graph.getData = function () {
+		//return $http.get('/graph');
+		return $http.get("/data.json");
+	};
+	graph.newSubscribe = function (start, end) {
+		return $http.put('/subscribe', {start: start, end: end});
+	};
+	graph.unlink = function (edge) {
+		return $http.delete('/edge/'+edge);
+	};
+	graph.newHub = function (hub) {
+		return  $http.post('/hub', hub);
+	};
+	return graph;
+})
+.controller('dotController', function($scope, $timeout, $mdDialog, $mdSidenav, $mdUtil, $mdBottomSheet, $log, graphFactory) {
+	$scope.alert = '';
+	graphFactory.getData()
+		.success(function (graph) {
+			$scope.graph = graph;
+			//console.dir(graph);
+		})
+		.error(function (err) {
+			$scope.status = 'Unable to load graph data: ' + err.message;
+		});
+	$scope.showAdvanced = function($event, dotname, dotid, doticon) {
+		$scope.alert = '';
+		$mdDialog.show({
+			templateUrl: 'grid-template.html',
+			controller: 'dialogCtrl',
+			targetEvent: $event,
+			locals: {dotname: dotname, dotid: dotid, doticon: doticon, graph: $scope.graph}
+		})
+		.then(function(answer) {
+			$scope.alert = 'Answered';
+		}, function() {
+			$scope.alert = '';
+		});
+	};
+	$scope.showListBottomSheet = function($event) {
+		$scope.alert = '';
+		$mdBottomSheet.show({
+			templateUrl: 'bottom-sheet-list.html',
+			controller: 'RightCtrl',
+			targetEvent: $event,
+			locals: {graph: $scope.graph}
+		}).then(function(clickedItem) {
+			$scope.alert = clickedItem.name + ' clicked!';
+		});
+	};
+	$scope.toggleRight = buildToggler('right');
+	function buildToggler(navID) {
+		var debounceFn =  $mdUtil.debounce(function(){
+			$mdSidenav(navID)
+			.toggle()
+			.then(function () {
+				$log.debug("toggle " + navID + " is done");
+			});
+		},300);
+		return debounceFn;
+	}
+})
+.controller('dialogCtrl', function($scope, $mdDialog, dotname, dotid, doticon, graph, graphFactory) {
+		$scope.selectedTab = 1;
+		$scope.title = dotname;
+		$scope.icon = doticon;
+		$scope.tabs = [
+			{ title: 'Permit' }
+		,	{ title: 'Subscribe' }
+		];	
+		$scope.graph = graph;
+
+		$scope.listItemClick = function(serviceid) {
+			var start,end;
+			var i = -1;
+			if ($scope.selectedTab) {
+				start = dotid;
+				end = serviceid;
+			}
+			else {
+				start = serviceid;
+				end = dotid;
+			}
+			$scope.graph.links.map(function(link, index) {
+				if ( (link.start === start) && (link.end === end) ) {
+					i = index;
+				}
+			});
+
+			if (i === -1) {
+				$scope.graph.links.push(
+					{ start: start,
+						end: end,
+						type: $scope.tabs[$scope.selectedTab].title 
+					}
+				);
+				graphFactory.newSubscribe(start,end)
+				.success(function(data) {
+					$scope.graph.links[$scope.graph.links.length-1].id = data.id;
+				})
+				.error(function (err) {
+					$scope.status = 'Unable to create new subscribe edge: ' + err.message;
+				});
+			}
+			else {
+				graphFactory.unlink($scope.graph.links[i].id)
+					.error(function (err) {
+						$scope.status = 'Unable to remove edge: ' + err.message;
+					});
+				delete ($scope.graph.links[i]);
+			}
+		};
+
+		$scope.linked = function(serviceid) {
+			var start,end;
+			if ($scope.selectedTab) {
+				start = dotid;
+				end = serviceid;
+			}
+			else {
+				start = serviceid;
+				end = dotid;
+			}
+			return $scope.graph.links.map(function(link) {
+				return ( (link.start === start) && (link.end === end) );
+			})
+			.reduce(function(prev, curr) {
+				return prev || curr;
+			})
+		};
+})
+.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log, graph, graphFactory) {
+	$scope.graph = graph;
+	$scope.close = function () {
+		$mdSidenav('right').close()
+		.then(function () {
+			$log.debug("close RIGHT is done");
+		});
+	};
+	$scope.submit = function() {
+		if (!($scope.uri !== "" && $scope.label !== "")) {
+			$window.alert('please fill in both URI and its Label');
+		}
+		else {
+			var hub = 
+				{ name: $scope.label,
+					uri: $scope.uri,
+					type: "hub",
+					icon: "communication:contacts"
+			};
+			$scope.graph.dots.push(hub);
+			graphFactory.newHub(hub)
+			.success(function(data) {
+				$scope.graph.dots[$scope.graph.dots.length-1].id = data.id;
+			})
+			.error(function (err) {
+				$scope.status = 'Unable to create new subscribe edge: ' + err.message;
+			});
+		}
+	};
+
+});
+
+</script>
+
+</body>
+</html>

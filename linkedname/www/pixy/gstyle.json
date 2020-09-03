@@ -1,0 +1,50 @@
+{
+	"style": [
+		{
+			"selector": "node.root",
+			"css": {
+				"shape": "circle",
+				"width": 70,
+				"content": "data(label)",
+				"height": 70,
+				"border-color": "#009",
+				"border-width": 50,
+				"border-opacity": 0.3
+			}
+		},
+		{
+			"selector": ".name",
+			"css": {
+				"shape": "rectangle",
+				"width": 110,
+				"content": "data(label)",
+				"text-valign": "center",
+				"background-color": "#fff",
+				"color": "#000",
+				"border-width": 1,
+				"border-color": "#000"
+			}
+		},
+		{
+			"selector": ".service",
+			"css": {
+				"shape": "roundrectangle",
+				"content": "data(label)",
+				"width": 70,
+				"height": 70,
+				"background-color": "#fff"
+			}
+		},
+		{
+			"selector": "edge",
+			"css": {
+				"width": 2,
+				"line-color": "#F5A45D",
+				"target-arrow-color": "#F5A45D",
+				"source-arrow-color": "#F5A45D",
+				"target-arrow-shape": "triangle",
+				"source-arrow-shape": "circle"
+			}
+		}
+	]
+}

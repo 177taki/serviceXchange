@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>Configuration page</title>
+<script type="text/javascript" src="jquery-1.11.0.js"></script>
+<script type="text/javascript" src="cytoscape-2.2.2.js"></script>
+<!--<script type="text/javascript" src="arbor.js"></script>-->
+<script type="text/javascript" src="index.js"></script>
+<link rel="stylesheet" type="text/css" media="screen,print" href="style.css" />
+</head>
+<body>
+<div id="panel"><div class="overlay">
+  <h2>Create a new Name</h2>
+	<form name="create" id="create">
+	<span>Name: </span>
+	<input type="text" id="ownname" name="ownname"/>
+	<input type="submit" value="Create" onclick="javascript:$('#panel').slideUp('fast');"/>
+	</form>
+	<br><br>
+	<div align="right">
+	<button type="cancel" onclick="javascript:$('#panel').slideUp('fast');">Cancel</button>
+	</div>
+</div></div>
+<div id="panel2"><div class="overlay">
+	<h2>Pin a Service or an adjacent Name</h2>
+	<form name="pin" id="pin">
+	<span>Category: </span>
+	<input type="radio" name="category" value="service"/> Service
+	<input type="radio" name="category" value="name"/> Name
+	<br>
+	<span>Name: </span>
+	<input type="text" name="exname" id="exname"/>
+	<br>
+	<span>Foreign ID:</span>
+	<input type="text" name="foreignid" id="foreignid"/>
+	<br>
+	<span>Icon: </span>
+	<input type="radio" name="icon" value="triangle.png"/> <img src="img/triangle.png">
+	<input type="radio" name="icon" value="pig.png"/> <img src="img/pig.png">
+	<input type="radio" name="icon" value="conf.png"/> <img src="img/conf.png">
+	<input type="radio" name="icon" value="home.png"/> <img src="img/house.png">
+	<br>
+	<input type="submit" value="Pin" onclick="javascript:$('#panel2').slideUp('fast');"/>
+	</form>
+	<div align="right">
+	<button type="cancel" onclick="javascript:$('#panel2').slideUp('fast');">Cancel</button>
+	</div>
+</div></div>
+<div id="panel3"><div class="slide">
+	<div style="float:left"><h2>Configure a link</h2></div>
+		<img src="img/house.png" width="20" height="20"><span id="from"></span><img src="img/chain.png" width="20" height="20"><img src="img/cloud.png" width="20" height="20"><span id="to"></span>
+		<br>
+		<input type="radio" name="direction" value="out" /> Out
+		<input type="radio" name="direction" value="in" /> In
+		<input type="radio" name="direction" value="undirected" /> Undirected
+		<br>
+		<input type="radio" name="protocol" value="call" /> Call
+		<input type="radio" name="protocol" value="email" /> EMail
+		<input type="radio" name="protocol" value="auth" /> Auth
+		<br><br>
+		<button type="button" onclick="javascript:$('#panel3').slideUp('fast');"/>Close</button>
+</div></div>
+<div id="viz"></div>
+</body>
+</html>

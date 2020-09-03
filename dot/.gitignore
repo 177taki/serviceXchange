@@ -1,0 +1,13 @@
+
+npm-debug.log
+redis/
+ui/bower_components/
+ui/node_modules/
+050info.xml
+ui/Expose/
+ui/font/
+ui/css/
+ui/fonts/
+ui/img/
+
+*.swp

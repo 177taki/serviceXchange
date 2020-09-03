@@ -1,0 +1,128 @@
+{
+	"style": [
+		{
+			"selector": "node.native",
+			"css": {
+				"shape": "circle",
+				"width": 70,
+				"height": 70,
+				"border-color": "#009",
+				"border-width": 50,
+				"border-opacity": 0.3,
+				"background-image": "data(icon)",
+				"background-fit": "cover"
+			}
+		},
+		{
+			"selector": ".linker",
+			"css": {
+				"shape": "roundrectangle",
+				"width": 110,
+				"content": "data(name)",
+				"text-valign": "center",
+				"background-color": "#fff",
+				"color": "#000",
+				"border-width": 1,
+				"border-color": "#000"
+			}
+		},
+		{
+			"selector": ".service",
+			"css": {
+				"shape": "roundrectangle",
+				"width": 70,
+				"height": 70,
+				"background-color": "#fff",
+				"background-image": "data(icon)",
+				"background-fit": "cover"
+			}
+		},
+		{
+			"selector": ".name",
+			"css": {
+				"shape": "rectangle",
+				"width": 110,
+				"content": "data(name)",
+				"text-valign": "center",
+				"background-color": "#fff",
+				"color": "#000",
+				"border-width": 1,
+				"border-color": "#000"
+			}
+		},
+		{
+			"selector": ".linker:locked",
+			"css": {
+				"font-weight": "bold",
+				"background-color": "#FF1493",
+				"color": "#F7FE2E"
+			}
+		},
+		{
+			"selector": ".service:locked",
+			"css": {
+				"content": "data(label)",
+				"text-valign": "bottom",
+				"color": "#000"
+			}
+		},
+		{
+			"selector": "edge.out",
+			"css": {
+				"content": "data(label)",
+				"width": 2,
+				"line-color": "#F5A45D",
+				"target-arrow-color": "#F5A45D",
+				"source-arrow-color": "#F5A45D",
+				"target-arrow-shape": "triangle",
+				"source-arrow-shape": "circle"
+			}
+		},
+		{
+			"selector": "edge.in",
+			"css": {
+				"content": "data(label)",
+				"width": 2,
+				"line-color": "#F5A45D",
+				"target-arrow-color": "#F5A45D",
+				"source-arrow-color": "#F5A45D",
+				"target-arrow-shape": "circle",
+				"source-arrow-shape": "triangle"
+			}
+		},
+		{
+			"selector": "edge.undirected",
+			"css": {
+				"content": "data(label)",
+				"width": 2,
+				"line-color": "#F5A45D",
+				"target-arrow-color": "#F5A45D",
+				"source-arrow-color": "#F5A45D",
+				"target-arrow-shape": "circle",
+				"source-arrow-shape": "circle"
+			}
+		},
+		{
+			"selector": "edge:locked",
+			"css": {
+				"font-weight": "bold",
+				"color": "#F7FE2E",
+				"text-outline-color": "#FF1493",
+				"text-outline-width": 5,
+				"width": 10,
+				"line-color": "#FF1493",
+				"target-arrow-color": "#FF1493",
+				"source-arrow-color": "#FF1493"
+			}
+		},
+		{
+			"selector": "edge.inner",
+			"css": {
+				"control-point-step-size": 0.1,
+				"control-point-distance": 0.1,
+				"control-point-weight": 0,
+			  "display": "none"
+			}
+		}
+	]
+}

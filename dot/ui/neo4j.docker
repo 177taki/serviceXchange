@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker run -i -t -d --name neo4j --cap-add=SYS_RESOURCE -p 7474:7474 tpires/neo4j
+#docker -H tcp://192.168.59.103:2375 run -i -t -d --name neo4j --cap-add=SYS_RESOURCE -p 7474:7474 tpires/neo4j

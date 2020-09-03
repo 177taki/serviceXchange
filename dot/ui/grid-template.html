@@ -1,0 +1,23 @@
+<md-dialog style="width: 80%">
+	<md-content class="md-padding">
+		<md-subheader class="md-primary">
+			<div layout="column" layout-align="center center">
+				<div style="background:#00B4CC;height:70px;width:70px; -moz-border-radius: 35px;-webkit-border-radius: 35px;border-radius: 35px" layout="row" layout-align="center center"><core-icon style="color: white; height:50px;width:50px" icon={{icon}}></core-icon></div>
+				<div><h3>{{title}}</h3></div>
+
+		</div>
+		</md-subheader>
+		<md-tabs md-selected="selectedTab" md-stretch-tabs="always">
+			<md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
+				<md-grid-list md-cols-sm="3" md-cols-md="6" md-cols-gt-md="9" md-row-height-gt-md="4:3" md-row-height="3:4" md-gutter="8px">
+					<md-grid-tile ng-repeat="service in graph.services" class="md-padding gridTile">
+						<div>
+						<p><paper-fab icon="{{service.icon}}" ng-class="{on:linked(service.id)}" ng-click="listItemClick(service.id)"></paper-fab></p>
+					</div>
+						<md-grid-tile-footer><h5>{{ service.name }}</h5></md-grid-tile-footer>
+					</md-grid-tile>
+				</md-gird-list>
+			</md-tab>
+		</md-tabs>
+	</md-content>
+</md-dialog>

@@ -1,0 +1,58 @@
+html, body { 
+	box-sizing: border-box;
+	font: 16px helvetica neue, helvetica, arial, sans-serif;
+	margin: 0;
+}
+
+span, input {
+	font-size: 16px;
+}
+
+#viz {
+ height: 100%;
+ width: 100%;
+ position: absolute;
+}
+
+#panel {
+	position: fixed;
+	color: #fff;
+  background-color: rgba(255,0,0,0.9);
+	width: 100%;
+	height: 45%;
+	display: none;
+	z-index: 10;
+}
+#panel2 {
+	position: fixed;
+	color: #fff;
+  background-color: rgba(0,0,255,0.9);
+	width: 100%;
+	height: 45%;
+	display: none;
+	z-index: 10;
+}
+#panel4 {
+	position: fixed;
+	color: #fff;
+	background-color: rgba(0,255,0,0.8);
+	width: 100%;
+	height: 20%;
+	display: none;
+	z-index: 10;
+}
+#panel3 {
+	color: #000;
+	background-color: rgba(0,255,0,0.8);
+	width: 100%;
+	height: 20%;
+	display: none;
+}
+div.overlay {
+	padding: 7%;
+}
+
+div.slide {
+	padding: 5%;
+}
+

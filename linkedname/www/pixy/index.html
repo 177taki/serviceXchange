@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="" />
+	<meta name="Author" content="" />
+	
+	<title>Dish</title>
+	
+	<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+	<!--<link rel="stylesheet" href="css/fontello.css" type="text/css"> -->
+	<link rel="stylesheet" href="css/animation.css" type="text/css">
+	<link rel="stylesheet" href="css/iconFont.css" type="text/css">
+	<link rel="stylesheet" href="css/confui.css" type="text/css">
+	<link rel="stylesheet/less" href="style.less" type="text/css">
+
+	<script type="text/javascript" src="jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="cytoscape-2.2.7.js"></script>
+	<script type="text/javascript" src="less-1.7.0.js"></script>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="angular-animate.js"></script>
+	<script type="text/javascript" src="angular-touch.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>	
+	<![endif]-->
+	
+</head>
+<body ng-app="App" class="type images links layout navbar tables desktop-layout desktop-nav">
+<!--
+<header>
+<div align="left"><h2><a href="#0" onclick="javascript:window.location.reload(true)"> Dish </a></h2></div>
+</header>	
+-->
+
+<div id="view"></div>
+<!-- =========================================================== -->
+<div ng-controller="Ctrl" style="position:relative"> <!-- ng-app -->
+<div ng-switch on="direction">
+
+<div class="menu">
+	<div class="logo">
+		<a href="#" onclick="javascript:window.location.reload(true)"><h2> Dish </h2></a>
+	</div>
+	<div ng-swipe-right="see = true">
+		<form>
+			<table class="yourname">
+				<tr ng-repeat="n in names">
+					<td><input type="radio" ng-model="name.selected" ng-value="n" name="choice" id="name{{$index}}"><label for="name{{$index}}">{{n.label}}</label></td>
+				</tr>	
+			</table>
+		</form>
+	</div>
+</div>
+<div class="main">
+	<div class="flip"><button ng-click="reverse()"><i ng-switch-when="out" class="fa fa-cloud-download"><h6>SUBSCRIBE</h6></i><i ng-switch-when="in" class="fa fa-cloud-upload"><h6>PUBLISH</h6></i></button></div>
+
+	<div class="heimr">
+		<div class="animated table" ng-switch-when="out" ng-class="name.selected.out">
+			<div class="table-cell" ng-repeat="s in services">
+				<button ng-click="toggle($index)" ng-class="on($index)"><i ng-class="s.icon"></i>
+				<span style="font-size:5px;color:#ffffff">{{s.label}}</span></button>
+			</div>
+		</div>
+		<div class="animated table" ng-switch-when="in" ng-class="name.selected.in">
+			<div class="table-cell" ng-repeat="s in services">
+				<button ng-click="toggle($index)" ng-class="on($index)"><i ng-class="s.icon"></i>
+				<span style="font-size:5px;color:#000000">{{s.label}}</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<!-- Overlay menu -->
+<div class="fullscreenOverlay fadeIn fadeOut" ng-show="see">
+<button class="btnClose" ng-click="see = false"></button>
+<div class="box">
+	<form ng-submit="submit()">
+		<input type="text" ng-model="uri" ng-init="uri = 'temp@org.pi'" placeholder="URI: name@domain" />
+		<input type="text" ng-model="label" ng-init="label = 'temporary'" placeholder="Label" />
+		<br><br>
+		<input type="submit" id="submit" value="create dish" ng-click="service = 'my'" />
+		<br><br>
+		<span class="lines-on-sides"> OR </span>
+		<span style="color:#ffffff"><h3 style="font-weight:900"> register a service: </h3></span><br>
+		<button type="submit" ng-click="service = 'dropbox'"><i class="fa fa-dropbox"></i></button>
+		<button type="submit" ng-click="service = 'pinterest'"><i class="fa fa-pinterest-square"></i></button>
+		<button type="submit" ng-click="service = 'linkedin'"><i class="fa fa-linkedin-square"></i></button>
+	</form>
+</div></div>
+
+<!--
+<footer>
+<button ng-swipe-right="see = true"><i class="fa fa-th-large"></i></button>
+</footer>
+-->
+</div><!-- ng-app -->
+</body></html>
+
+<!-- TABLE layout
+<table id="main">
+	<tr class="headers">
+		<td class="logo">
+			<h2><a href="#0" onclick="javascript:window.location.reload(true)"> Pixy </a></h2>
+		</td>
+		<td>
+			<button ng-click="reverse()"><i ng-switch-when="out" class="fa fa-cloud-download"><h6>SUBSCRIBE</h6></i>
+																 	<i ng-switch-when="in" class="fa fa-cloud-upload"><h6>PUBLISH</h6></i></button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<form>
+			<table class="listing">
+				<tr ng-repeat="n in names">
+					<td><input type="radio" ng-model="name.selected" ng-value="n" name="choice" id="name{{$index}}">
+					<label for="name{{$index}}">{{n.label}}</label></td>
+				</tr>	
+			</table>
+			</form>
+		</td>
+		<td>
+			<div style="width:100%;height:100%;position:relative">
+			<div class="animated" ng-switch-when="out" ng-class="name.selected.out">
+				<button ng-click="toggle($index)" ng-class="on($index)" ng-repeat="s in services"><i ng-class="s.icon"></i></button>
+			</div>
+			<div class="animated" ng-switch-when="in" ng-class="name.selected.in">
+					<button ng-click="toggle($index)" ng-class="on($index)" ng-repeat="s in services"><i ng-class="s.icon"></i></button>
+			</div>
+			</div>
+		</td>
+	</tr>
+</table>
+-->
+
+<!-- div layout : it doesn't appear correctly on iPhone
+<div class="rectangle">
+	
+	<div id="flip"><button ng-click="reverse()"><i ng-switch-when="out" class="fa fa-cloud-download"><h6>SUBSCRIBE</h6></i><i ng-switch-when="in" class="fa fa-cloud-upload"><h6>PUBLISH</h6></i></button></div>
+
+	<div class="frequent">
+		<div class="animated" ng-switch-when="out" ng-class="name.selected.out">
+			<button ng-click="toggle($index)" ng-class="on($index)" ng-repeat="s in services"><i ng-class="s.icon"></i></button>
+		</div>
+		<div class="animated" ng-switch-when="in" ng-class="name.selected.in">
+				<button ng-click="toggle($index)" ng-class="on($index)" ng-repeat="s in services"><i ng-class="s.icon"></i></button>
+		</div>
+	</div>
+	<div class="namelist">
+		<form>
+		<table class="listing">
+			<tr ng-repeat="n in names">
+				<td><input type="radio" ng-model="name.selected" ng-value="n" name="choice" id="name{{$index}}">
+				<label for="name{{$index}}">{{n.label}}</label></td>
+			</tr>	
+		</table>
+		</form>
+	</div>
+
+</div>
+-->
+
+<!--
+<div ng-switch-when="out">
+		<div id={{id(n)}} ng-class="f(n)" ng-repeat="n in names | limitTo:2">
+			<div class="label">{{l(n)}}</div>
+			<button ng-click="toggle($parent.$index, $index)" ng-class="on($parent.$index, $index)" ng-repeat="s in services | limitTo:limit(n)"><i ng-class="i(s)"></i></button>
+		</div>
+</div>
+<div ng-switch-when="in">
+	<div id={{id(n)}} ng-class="f(n)" ng-repeat="n in names">
+		<button ng-click="toggle($parent.$index, $index)" ng-class="on($parent.$index, $index)" ng-repeat="s in services | limitTo:limit(n)"><i ng-class="i(s)"></i></button>
+	<div class="label">{{l(n)}}</div>
+	</div>
+</div>
+-->
+<!--
+<div class="rare NCc box">
+<button ng-click="toggle()" ng-class="{on:i.flag}" ng-repeat="i in icons | limitTo:1"><i ng-class="getClass(i)"></i></button>
+<div class="caption"><i class="fa fa-tag"></i>aaa</div>
+</div>
+<div class="occasional NBb box">
+<button ng-click="toggle()" ng-class="{on:i.flag}" ng-repeat="i in icons | limitTo:3"><i ng-class="getClass(i)"></i></button>
+<div class="caption">aaa</div>
+</div>
+<div class="frequent NAa box">
+<button ng-click="toggle()" ng-class="{on:i.flag}" ng-repeat="i in icons"><i ng-class="getClass(i)"></i></button>
+<div class="caption"><i class="fa fa-tag"></i>aaa</div>
+</div>
+-->
+
+

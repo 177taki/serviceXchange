@@ -1,0 +1,203 @@
+{
+	"elements": [
+	  {
+			"group": "nodes"
+		,	"classes": "root"
+		,	"data":
+			  {
+					"id": "root@org.pi"
+				,	"label": "root"
+				,	"icon": "icon-user"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "service sip"
+		,	"data": 
+				{
+				   "id": "GetOnSip@alterego@getonsip.com"
+				,	 "label": "Cellphone"
+				,	 "intents": [ "Chat" ]
+				,  "protocol": [ "sip" ]
+				,	 "icon": "icon-phone-2"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "service smtp"
+		,	"data": 
+				{
+				   "id": "Google@egoaltr@mail.com"
+				,	 "label": "GMail"
+				,	 "intents": [ "Post" ]
+				,  "protocol": [ "smtp" ]
+				,	 "icon": "icon-mail"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "service sip"
+		,	"data": 
+				{
+				   "id": "GetOnSip@konsome@getonsip.com"
+				,	 "label": "Office-phone"
+				,	 "intents": [ "Chat" ]
+				,  "protocol": [ "sip" ]
+				,	 "icon": "icon-phone"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "service sip"
+		,	"data": 
+				{
+				   "id": "Linphone@addr@sip.linphone.org"
+				,	 "label": "Home"
+				,	 "intents": [ "Chat" ]
+				,  "protocol": [ "sip" ]
+				,	 "icon": "icon-home"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "service smtp"
+		,	"data": 
+				{
+				   "id": "id@mail@address"
+				,	 "label": "Office-eMail"
+				,	 "intents": [ "Post" ]
+				,	 "protocol": [ "smtp" ]
+				,	 "icon": "icon-cabinet"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service twitter"
+		, "data":
+				{
+				 	"id": "Twitter@dvergr"
+				, "label": "Twitter"
+				, "intents": [ "Post" ]
+				, "protocol": [ "twitter-api" ]
+				, "icon": "icon-twitter"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service google"
+		, "data":
+				{
+				  "id": "Google@id@mail.com"
+				, "label": "Google-plus"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "googleapis" ]
+				, "icon": "icon-google-plus"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service github"
+		, "data":
+				{
+				  "id": "GitHub@zusa"
+				, "label": "Github"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "githubapi" ]
+				, "icon": "icon-github"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service skype"
+		, "data":
+				{
+				  "id": "Skype@skype"
+				, "label": "Skype"
+				, "intents": [ "Chat" ]
+				,	"protocol": [ "skype" ]
+				, "icon": "icon-skype"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service qiita"
+		, "data":
+				{
+					"id": "Qiita@zusa"
+				, "label": "Qiita"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "qiitaapi" ]
+				, "icon": "icon-search"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service"
+		, "data":
+				{
+					"id": "ML1@org.pi"
+				, "label": "Mail-list"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "smtp" ]
+				, "icon": "icon-credit-card"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service"
+		, "data":
+				{
+					"id": "ML2@org.pi"
+				, "label": "Emergency"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "smtp" ]
+				, "icon": "icon-credit-card"
+				}
+		}
+	, {
+			"group": "nodes"
+		, "classes": "service"
+		, "data":
+				{
+					"id": "sensor@org.pi"
+				, "label": "Sensor"
+				, "intents": [ "Post" ]
+				,	"protocol": [ "mqtt" ]
+				, "icon": "icon-fire"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "name"
+		,	"data": 
+				{
+					 "id": "bizly@org.pi"
+				,	 "label": "Business"
+				,	 "out": "out1"
+				,	 "in": "in1"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "name"
+		,	"data": 
+				{
+					 "id": "private@org.pi"
+				,	 "label": "Private"
+				,	 "out": "out2"
+				,	 "in": "in2"
+				}
+		}
+	,	{
+			"group": "nodes"
+		,	"classes": "name"
+		,	"data": 
+				{
+					 "id": "public@org.pi"
+				,	 "label": "Public"
+				,	 "out": "out3"
+				,	 "in": "in3"
+				}
+		}
+	]
+}

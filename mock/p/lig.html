@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js で Markdown</title>
+
+		<meta name="description" content="reveal.js で markdown を使う方法。">
+		<meta name="author" content="Hayato &quot;flatbird&quot; Hiratori">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+<section id="about-revealjs" data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+## reveal.js で markdown
+
+@flatbirdH
+
+---
+### このスライドの作り方のお話です。
+
+reveal.js も markdown も知ってるなら [Jump](#markdown-in-revealjs)!
+
+---
+## reveal.js
+- HTML ベーススライド。
+- なんかカッコいいスライドができる。
+- [hakimel / reaveal.js](https://github.com/hakimel/reveal.js/) から Get !
+
+>>>
+ちなみにその他の HTML ベーススライド作成ツールキットについてはこちらの記事を参照。
+
+[Roundup of HTML-Based Slide Deck Toolkits](http://www.impressivewebs.com/html-slidedeck-toolkits/)
+
+---
+## 特徴
+### 縦方向スライド (Vertical Slides)
+### 下(↓)へ行ける
+
+>>>
+## 補足スライドなどに使う
+
+</script>
+</section>
+
+<section id="themes" data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+## 多彩なテーマ
+<a href="?theme=sky#/themes">Sky</a> -
+<a href="?theme=beige#/themes">Beige</a> -
+<a href="?theme=simple#/themes">Simple</a> -
+<a href="?theme=serif#/themes">Serif</a> -
+<a href="?theme=night#/themes">Night</a> -
+<a href="?#/themes">Default</a>
+</script>
+</section>
+
+<section id="transitions" data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+## かっこいいページめくり
+
+<a href="?transition=cube#/transitions">Cube</a> -
+<a href="?transition=page#/transitions">Page</a> -
+<a href="?transition=concave#/transitions">Concave</a> -
+<a href="?transition=zoom#/transitions">Zoom</a> -
+<a href="?transition=linear#/transitions">Linear</a> -
+<a href="?transition=fade#/transitions">Fade</a> -
+<a href="?transition=none#/transitions">None</a> -
+<a href="?#/transitions">Default</a>
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+### スライド操作
+- ESC でスライド一覧。
+- Alt + マウスクリックでズーム。
+- ピリオド `<.>` でスライドをブラックアウト。
+- 方向キーだけでなく、J, K, H, L キーでも上下左右のスライドに移動できる。
+  - Vim 使いながら触ってたら気付いた...
+
+---
+### コード装飾 (code prettifier)
+
+```
+#include <stdio.h>
+
+int main(int argc, char* argv[]) {
+	printf("Hello, world!\n");
+	return 0;
+}
+```
+
+---
+### プログラマが個人でスライド作るには
+### 本当に便利
+
+- ブラウザだけでプレゼン可能。
+  - PowerPoint とか要らない!
+  - マルチプラットフォーム (Mac, Win, Linux...)
+- テキストベースでバージョン管理。
+- GitHub Pages とかで公開可能。(静的 HTML)
+
+---
+でも HTML 書くの面倒・・・
+
+ε＝（‐ω‐；；）
+
+---
+### そこで Markdown !
+### reveal.js は Markdown をサポート
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+# Markdown
+
+---
+### Markdown
+- 軽量マークアップ記法。
+- Markup の反対で Markdown。(たぶん)
+- 読みやすいプレーンテキストで書いて HTML に変換出来る。
+</script>
+</section>
+
+<section>
+	<h3>例えばこれが</h3>
+	<hr />
+	<pre>
+	<code class="markdown">
+	### Markdown サンプル
+
+	1. リスト
+	  - *斜体*
+	  - **強調**
+
+	2. [リンク](http://ladygeekgirl.wordpress.com/2012/06/18/why-i-hate-toon-link/)
+
+	3. ![画像](image/baby.png)
+
+	</code>
+</pre>
+</section>
+
+<section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+### こうなる
+- - -
+### Markdown サンプル
+
+1. リスト
+  - *斜体*
+  - **強調**
+
+2. [リンク](http://ladygeekgirl.wordpress.com/2012/06/18/why-i-hate-toon-link/)
+
+3. ![画像](image/baby.png)
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+### けっこう昔(2004年)からあったらしい
+
+[本家解説サイトの Web アーカイブ](http://web.archive.org/web/20040402182332/http://daringfireball.net/projects/markdown/)
+
+<iframe src="http://web.archive.org/web/20040402182332/http://daringfireball.net/projects/markdown/"
+width="100%" height="400px" />
+
+---
+### この１,２年で流行ってきてるみたい
+![Google Trends](image/trend.png)
+
+---
+### サポートしてるシステムも色々
+- GitHub の README.md とか。
+- Tumblr もそうらしい。。。(使ったことないけど)
+- いろんなエディタがあります。
+  - Mac 向けが充実してる気がする。
+- 最近では **[wri.pe](http://wri.pe/)** なんかがニュースに。。。
+
+>>>
+<iframe src="http://itpro.nikkeibp.co.jp/article/NEWS/20130603/481785/"
+width="100%" height="600px" />
+
+</script>
+</section>
+
+<section id="markdown-in-revealjs" data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+## 本題
+## reveal.js で markdown
+
+</script>
+</section>
+
+<section>
+<ul>
+<li>各ページの &lt;section&gt; タグに data-markdown 属性をつける。
+<li>さらに、&lt;script type="text/template"&gt; で囲む。
+</ul>
+
+<pre><code class="html">&lt;div class="slides"&gt;
+  &lt;section data-markdown&gt;
+    &lt;script type="text/template"&gt;
+    ### Markdown
+    1. One
+    2. Two
+    3. Three
+    &lt;/script&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code>
+</pre>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+でも、このままだとページごとに
+
+`<section data-markdown>`
+
+`<script type="text/template">`
+
+…で囲むのが面倒。
+</script>
+</section>
+
+<section>
+<h4>１セクションで複数ページの Markdown を書く方法</h4>
+<ul>
+<li>"data-separator" でページセパレータを正規表現で指定
+	<ul sytle="font-size:small;">
+		<li>ここでは空行に続く "---" をセパレータに使用。
+	</ul>
+<li>"data-vertical" で縦方向のページセパレータを正規表現で指定。
+	<ul sytle="font-size:small;">
+		<li>ここでは空行に続く "&gt;&gt;&gt;" を使用。
+	</ul>
+</ul>
+<pre><code class="html">&lt;div class="slides"&gt;
+  &lt;section data-markdown data-separator="^\n---$" data-vertical="^\n&gt;&gt;&gt;$"&gt;
+    &lt;script type="text/template"&gt;
+      Page 1
+
+      ---
+      Page 2
+
+      &gt;&gt;&gt;
+      Page 2.2
+
+    &lt;/script&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code>
+</pre>
+</section>
+
+<section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+<script type="text/template">
+まとめ
+
+- Pros
+  - PowerPoint 要らない！
+  - HTML/CSS/JS 書けると色々拡張できる。可能性は ∞ !
+  - スライド作ってるんだけどコード書いてるみたいで楽しい。
+<br/>
+- Cons
+  - ある程度 HTML コーディングによる調整が必要。
+    - デバッグが必要になる場合も。。。
+    - 色々いじってると PowerPoint よりスライド作成に時間が掛かってる気がする。
+  - 画像や図や表を使うなら PowerPoint のほうが全然楽。
+    - スマートアートとかアニメーションも。。。
+  - オフラインでは使えない？
+    - Google Web Fonts を落としてきてるみたい。
+  - IE8 以前では見られないかも。
+
+---
+# Thank you!
+
+</script>
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Title
+
+---
+
+# 顧客の抱える課題
+
+1. コミュニケーションに使うデバイスやツール（アプリ）が多様化する一方で，受ける側としては，
+状況に応じて選択したり，通信中に変更するということが難しい．
+  * ビジネスシーンにおいて，在籍中は自席電話/PC等で受け，外出時には携帯で受けるなど，現在はできる
+  　ことに限りがある．
+  * 携帯で受けたあとに，電話会議システムにシームレスに移行したり，参加者を招待したりすることはできない．
+
+2. 店舗の会員サービス等で，携帯番号やメールアドレスの提供を求められるが，不正利用される懸念がある．
+3. ...
+
+---
+
+# 顧客に提供するサービス
+
+私用や，仕事用，公開用など目的別に，アカウント（電話番号，メールアドレス）を持つことができ，
+それぞれのアカウントを状況によって，携帯であったり固定電話であったり，チャットなどのツールで
+あったり自由に組み上げることができるサービス．
+
+* 仕事中に，業務用携帯で電話をうけ，電話会議につなげたい場合，受けた電話を電話会議システムに
+　移行し，参加者を招待する．
+* 家族用番号をもうけ，そこに着信があると家族全員の携帯電話が着信する．（固定電話では結局誰も出ない
+　可能性がある）
+* 会員サービス加入時に，公開用もしくはテンポラリのアドレスを登録する．
+* 宅配の連絡用に，恒久的に使うアドレスではなく，宅配時に連絡がほしいときだけ連絡受けるための
+　アドレスを利用する．
+
+---
+
+# ビジネスモデル
+
+1. B向け
+BYODなどを推進する企業等への統合コミュケーションシステムの提供
+
+2. C向け
+
+* 収益モデル
+アカウント数に応じた課金．例えば，C向けには5アカウントまでは月額99円といった提供方法．
+
+---
+
+# サービス展開
+
+* AWS上への構築，Webサービスとして提供
+
+    </textarea>
+
+
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

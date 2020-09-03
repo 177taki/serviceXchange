@@ -1,0 +1,166 @@
+.fullscreenOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(153, 204, 51, 0.9);
+	display: hidden;
+}
+
+/* Action Bar */
+.fullscreenOverlay .actionbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	padding: 16px;
+}
+.fullscreenOverlay .actionbar .row {
+    height: 100%;
+}
+input[type=text]
+{
+	font-family: 'JosefinSans-Light';
+	font-size: 1.4em;
+}
+input[type=submit]
+{
+	background-color: transparent;
+	color: #ffffff;
+	border: 2px solid #ffffff;
+	font-family: 'JosefinSans-Light';
+	font-size: 2em;
+	font-weight: 900;
+}
+/* Close Button */
+.fullscreenOverlay .btnClose {
+	background: url(../img/cross.png) no-repeat center center;
+	width: 80px;
+	height: 80px;
+	border: none;
+	outline: none;
+}
+.box button
+{
+	border: none;
+	background-color: transparent;
+	color: #ffffff;
+	font-size: 2em;
+}
+/* Main realm */
+.fullscreenOverlay .box {
+	height: 100%;
+	padding-top: 2vh;
+	padding-bottom: 16px;
+	padding-left: 23.60649vw;
+}
+/* Menu */
+.fullscreenOverlay nav {
+	position: relative;
+	height: 100%;
+	font-size: 1.6em;
+	text-align: left;
+	overflow: auto;
+}
+.fullscreenOverlay ul {
+	padding: 0;
+/*	margin: 0 auto; */
+}
+.fullscreenOverlay ul li {
+	display: block;
+}
+.fullscreenOverlay ul li a {
+	display: block;
+	font-weight: 300;
+	color: #fff;
+	-webkit-transition: color 0.5s;
+	transition: color 0.5s;
+}
+.fullscreenOverlay ul li a:hover, .overlay ul li a:focus {
+    color: #e3fcb1;
+}
+
+/* Fade in start */
+.fadeIn.ng-hide-remove {
+    display: block !important;
+    opacity: 0.0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+/* Fade in done */
+.fadeIn.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1.0;
+}
+
+/* Fade out start */
+.fadeOut.ng-hide-add {
+    display: block !important;
+    opacity: 1.0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+/* Fade out done */
+.fadeOut.ng-hide-add.ng-hide-add-active {
+    opacity: 0.0;
+}
+
+/* Menu rotate start */
+.fadeIn.ng-hide-remove div.box {
+    opacity: 0.5;
+    -webkit-transform: translateX(-25%) rotateY(35deg);
+    transform: translateX(-25%) rotateY(35deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Menu rotate done */
+.fadeIn.ng-hide-remove.ng-hide-remove-active div.box {
+    opacity: 1.0;
+    -webkit-transform: translateX(0%) rotateY(0deg);
+    transform: translateX(0%) rotateY(0deg);
+}
+
+/* Menu rotate start */
+.fadeOut.ng-hide-add div.box {
+    opacity: 1.0;
+    -webkit-transform: translateX(0%) rotateY(0deg);
+    transform: translateX(0%) rotateY(0deg);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Menu rotate done */
+.fadeOut.ng-hide-add.ng-hide-add-active div.box {
+    opacity: 0.0;
+    -webkit-transform: translateX(25%) rotateY(-35deg);
+    transform: translateX(25%) rotateY(-35deg);
+}
+/* lines on sides */
+.lines-on-sides {
+	display: table;
+	text-align: center;
+	white-space: nowrap;
+	width: 70.39351vw;
+	color: #ffffff;
+}
+.lines-on-sides:after, .lines-on-sides:before {
+	content: '';
+	display: table-cell;
+	width: 50%;
+	background: -webkit-linear-gradient(transparent 50%, currentColor 50%, currentColor -webkit-calc(50% + 1px), transparent -webkit-calc(50% + 1px));
+	background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, currentColor), color-stop(currentColor calc(50% + 1px)), to(transparent calc(50% + 1px)));
+	background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + 1px), transparent calc(50% + 1px));
+	-webkit-background-clip: padding;
+	background-clip: padding;
+}
+.lines-on-sides:after {
+  border-left: 1em solid transparent;
+}
+.lines-on-sides:before {
+  border-right: 1em solid transparent;
+}
+
